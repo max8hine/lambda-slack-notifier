@@ -1,25 +1,28 @@
-# Welcome to Serverless!
-#
-# This file is the main config file for your service.
-# It's very minimal at this point and uses default values.
-# You can always add more config options for more control.
-# We've included some commented out config examples here.
-# Just uncomment any of them to get that config option.
-#
-# For full config options, check the docs:
-#    docs.serverless.com
-#
-# Happy Coding!
+plugins:
+  - serverless-offline
 
-service: aws-nodejs # NOTE: update this with your service name
+service: slack-notifier
 
-# You can pin your service to only deploy with a specific Serverless version
-# Check out our docs for more details
-# frameworkVersion: "=X.X.X"
 
 provider:
   name: aws
   runtime: nodejs10.x
+  stage: dev
+  region: ap-southeast-2 // Asia Pacific (Sydney)
+  environment:
+    TZ: NZ
+    notifierUrl: https://hooks.slack.com/services/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
+
+functions:
+  notifier:
+    handler: handler.notifier
+    events:
+      - http: POST notifier
+  test:
+    handler: handler.test
+    events:
+      - http: POST test
+    
 
 # you can overwrite defaults here
 #  stage: dev
@@ -54,9 +57,9 @@ provider:
 #    - exclude-me.js
 #    - exclude-me-dir/**
 
-functions:
-  hello:
-    handler: handler.hello
+# functions:
+#   hello:
+#     handler: handler.hello
 
 #    The following are a few example events you can configure
 #    NOTE: Please make sure to change your handler code to work with those events

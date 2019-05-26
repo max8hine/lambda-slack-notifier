@@ -1,0 +1,22 @@
+{
+  "name": "slack-notifier",
+  "description": "AWS Lambda node function for sending a message to your slack channel",
+  "version": "0.0.1",
+  "main": "handler.js",
+  "repository": "git@github.com:max8hine/lambda-slack-notifier.git",
+  "author": "Max Ma <max8hine@gmail.com>",
+  "scripts": {
+    "start": "sls offline start --port 8000",
+    "deploy": "serverless deploy -v",
+    "deploy:pro": "serverless deploy --stage production"
+  },
+  "devDependencies": {
+    "prettier": "1.17.1",
+    "serverless-offline": "^4.10.6"
+  },
+  "dependencies": {
+    "axios": "^0.18.0",
+    "dayjs": "^1.8.14"
+  },
+  "license": "MIT"
+}
