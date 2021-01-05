@@ -15,7 +15,7 @@
     "serverless-offline": "^4.10.6"
   },
   "dependencies": {
-    "axios": "^0.18.0",
+    "axios": "^0.21.1",
     "dayjs": "^1.8.14"
   },
   "license": "MIT"
